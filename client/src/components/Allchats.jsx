@@ -31,6 +31,7 @@ export default function Allchats({ selectedChat, setSelectedChat }) {
                     return chat?._id !== id
                 })
             })
+            setSelectedChat();
         }).catch(err=>{
             throw err;
         })
