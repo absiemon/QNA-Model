@@ -1,0 +1,26 @@
+{
+  "name": "qna-model",
+  "version": "1.0.0",
+  "description": "question answering model",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "cd startup && node download.js && node transcript3.js && node ingest-data.js"
+  },
+  "author": "abhay",
+  "license": "ISC",
+  "dependencies": {
+    "@pinecone-database/pinecone": "^0.0.12",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "langchain": "^0.0.55",
+    "mongoose": "^7.0.4",
+    "nodemon": "^2.0.22",
+    "openai": "^3.2.1",
+    "ytdl-core": "^4.11.3"
+  }
+}
