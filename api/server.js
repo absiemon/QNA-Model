@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require('cookie-parser');
 const router = require('./router/router');
+const {mongoConnect} = require('./config/AllConfig');
 require('dotenv').config();
 
 const app = express();
@@ -17,7 +18,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-require("./config/mongoDB")();
+mongoConnect();
 
 app.use('/api', router);
 const port = process.env.PORT || 8000;

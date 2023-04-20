@@ -4,7 +4,7 @@ const {DirectoryLoader} = require('langchain/document_loaders');
 const {TextLoader} = require('langchain/document_loaders/fs/text')
 const { OpenAIEmbeddings } = require('langchain/embeddings/openai');
 const { RecursiveCharacterTextSplitter } = require('langchain/text_splitter');
-const  initPinecone  = require('../config/pinecone.js');
+const  {initPinecone}  = require('../config/AllConfig.js');
 const {PineconeStore} = require('langchain/vectorstores/pinecone');
 
 const runInject = async () =>{
@@ -24,10 +24,13 @@ const runInject = async () =>{
         const pineconeIndex = pineconeConfig.Index(process.env.PINECONE_INDEX_NAME);
         await PineconeStore.fromDocuments(texts, embeddings, { pineconeIndex:pineconeIndex});
         console.log("ingestion completed");
-        fs.rmdir('../chunks', { recursive: true }, (err) => {
-            if (err) throw err; 
-            console.log('Folder deleted successfully');
-        });
+        const dir= '../chunks'
+        if(fs.existsSync(dir)){
+            fs.rmdir('../chunks', { recursive: true }, (err) => {
+                if (err) throw err; 
+                console.log('Folder deleted successfully');
+            });
+        }
     }).catch(err => {
         console.log('Error', err)
         throw new Error('Failed to ingest your data');

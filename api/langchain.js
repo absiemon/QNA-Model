@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { OpenAIEmbeddings } = require('langchain/embeddings/openai');
-const initPinecone = require('./config/pinecone.js');
-const initOpenAI = require('./config/openAI.js')
+const {initPinecone} = require('./config/AllConfig');
+const {initOpenAI} = require('./config/AllConfig')
 const { PineconeStore } = require('langchain/vectorstores/pinecone');
 const { ConversationalRetrievalQAChain } = require('langchain/chains')
 
@@ -45,7 +45,6 @@ const aksQuestions = async (query) => {
         question: query,
         chat_history: [] ,
     });
-
     return response;
 }
 
