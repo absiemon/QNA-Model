@@ -44,7 +44,7 @@ PINECONE_INDEX_NAME = your-pinecone-index-name
 ```bash
 VITE_API_BASE_URL = your-api-base-url ( ex:- http://localhost:port/api )
 ```
-8. Go to download directory of api directory and paste a url of desired youtube video for transcription.
+8. Go to download file in startup directory of api directory and paste a url of desired youtube video for transcription.
 
 9. Execute the below command to download, compress, spliting into chunks, transcribing and embedding the vector into pinecone:
 ```bash
