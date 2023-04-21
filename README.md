@@ -16,7 +16,7 @@ $ git clone url
 ```bash
 $ npm install
 ```
-3. Create a .env file in the api directory of the application and add the following variables:
+3. Create a .env file in root directory of the api directory of the application and add the following variables:
 ```bash
 MONGODB_URI= your-mongo-uri
 OPENAI_API_KEY = your-openai-api-key
